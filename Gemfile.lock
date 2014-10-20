@@ -1,0 +1,19 @@
+PATH
+  remote: .
+  specs:
+    jlint (0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    minitest (5.4.2)
+    rake (10.3.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.5)
+  jlint!
+  minitest
+  rake

@@ -18,6 +18,10 @@ Or install it yourself as:
 
     $ gem install jlint
 
+## Dependency
+
+1. JRE
+
 ## Usage
 
 ```ruby

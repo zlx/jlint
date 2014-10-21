@@ -9,10 +9,11 @@ module Jlint
       file = Tempfile.new(["temp", ".java"])
       begin
         file.puts content
+        file.rewind
+        file.close
 
         file_lint file.path, config
       ensure
-        file.close
         file.unlink
       end
     end

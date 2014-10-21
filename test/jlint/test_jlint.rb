@@ -17,10 +17,10 @@ describe Jlint do
   public void hi(long name) {
     system.out.printf("Hi, " + name);
   }
-}
-    ]
+}]
     result = Jlint.lint(content, "")
     assert result.is_a?(Array)
+    assert !result.include?(["File does not end with a newline.", 0])
     assert result.include?(["Missing package-info.java file.", 0])
   end
 

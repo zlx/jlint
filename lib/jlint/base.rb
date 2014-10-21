@@ -1,13 +1,28 @@
+require 'tempfile'
+
 module Jlint
   class Base
     def initialize
     end
 
-    def lint file_path, config
+    def lint content, config
+      file = Tempfile.new(["temp", ".java"])
+      begin
+        file.puts content
+
+        file_lint file.path, config
+      ensure
+        file.close
+        file.unlink
+      end
+    end
+
+    def file_lint file_path, config
       parse `java -jar #{checkstyle_command} -c #{checkstyle_config} #{file_path}`
     end
 
     private
+
     def checkstyle_command
       File.join(File.dirname(__FILE__), '..', '..', 'bin', 'checkstyle.jar')
     end
@@ -21,7 +36,7 @@ module Jlint
       array.reject! { |s| s == 'Starting audit...' || s == 'Audit done.' }
       array.map! do |msg|
         msgs = msg.split(":")
-        [msgs.last.strip, msgs[1]]
+        [msgs.last.strip, msgs[1].to_i]
       end
     end
   end

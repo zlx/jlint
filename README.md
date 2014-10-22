@@ -25,7 +25,14 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-  Jlint.lint(content, config)  # [message, line]
+  Jlint.lint(content)         #=> [[message, line], ...]
+  Jlint.file_lint(file_path)  #=> [[message, line], ...]
+
+# Default it use [sun checks]()
+# If Want to custom config
+
+  lint = Jlint.new(config_content)
+  lint.lint(content)          #=> [[message, line], ...]
 ```
 
 ## Contributing

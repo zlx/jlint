@@ -1,4 +1,6 @@
 require 'tempfile'
+require 'yaml'
+
 class Jlint
   def self.lint content
     new.lint content
@@ -49,7 +51,7 @@ class Jlint
   end
 
   def checkstyle_command
-    File.join(File.dirname(__FILE__), '..', 'bin', 'checkstyle.jar')
+    File.join(File.dirname(__FILE__), '..', 'bin', 'current')
   end
 
   def checkstyle_config

@@ -1,0 +1,17 @@
+---
+- - Missing package-info.java file.
+  - 0
+- - Missing a Javadoc comment.
+  - 1
+- - Missing a Javadoc comment.
+  - 2
+- - Method Name 'Sample' must not equal the enclosing class name.
+  - 2
+- - Name 'Sample' must match pattern '^[a-z][a-zA-Z0-9]*$'.
+  - 2
+- - Method 'hi' is not designed for extension - needs to be abstract, final or empty.
+  - 5
+- - Missing a Javadoc comment.
+  - 5
+- - Parameter name should be final.
+  - 5

@@ -6,7 +6,7 @@ describe Jlint do
     file_path = File.join(File.dirname(__FILE__), "..", "support", "sample.java")
     result = Jlint.file_lint(file_path)
     assert result.is_a?(Array)
-    assert result.include?(["Missing package-info.java file.", 0])
+    assert_equal(result.to_yaml, File.read('test/support/sample_errors.yml'))
   end
 
   it "should lint for file content with newline" do
@@ -21,7 +21,7 @@ describe Jlint do
     result = Jlint.lint(content)
     assert result.is_a?(Array)
     assert !result.include?(["File does not end with a newline.", 0])
-    assert result.include?(["Missing package-info.java file.", 0])
+    assert_equal(result.to_yaml, File.read('test/support/custom_config_errors.yml'))
   end
 
   it "should lint with custom config content" do

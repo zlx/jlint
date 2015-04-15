@@ -34,7 +34,12 @@ class Jlint
   private
 
   def parse_lint command, config_path, file_path
-    parse `java -jar #{checkstyle_command} -c #{config_path} #{file_path}`
+    output = `java -jar #{checkstyle_command} -c #{config_path} #{file_path}`
+    if /Unable to create Checker|Error loading configuration file/ =~ output
+      raise output
+    else
+      parse output
+    end
   end
 
   def as_file content, format = ".java"

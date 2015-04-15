@@ -1,5 +1,7 @@
 # Jlint
 
+![](https://travis-ci.org/zlx/jlint.svg?branch=master)
+
 Ruby Warp for CheckStyle: https://github.com/checkstyle/checkstyle
 
 Provide more friendly interface for Rubist
